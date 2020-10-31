@@ -277,10 +277,9 @@ class Token(object):
                     replacementInt = random.randint(startInt, endInt)
                     if self.replacementType == "rated":
                         rateFactor = 1.0
-                        now = s.now()
                         if type(s.hourOfDayRate) == dict:
                             try:
-                                rateFactor *= s.hourOfDayRate[str(now.hour)]
+                                rateFactor *= s.hourOfDayRate[str(s.now())]
                             except KeyError:
                                 import traceback
 
